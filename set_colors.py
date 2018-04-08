@@ -29,7 +29,7 @@ class UltrasonicLEDSerialNode():
 		ser = serial.Serial(port = port, baudrate = baud_rate)
 		return ser
 	#read one line of data from serial port
-	
+
 	def read(self):
 		return self.ultrasonic_ser.readline()
 	#write one line of data to serial port
@@ -90,7 +90,8 @@ def main(args):
 	#define the serial port for the ultrasonics. This will change when uploaded to wheelchair
 	ultrasonic_port = '/dev/ttyACM1'
 	#define the serial port for the NeoPixel.  This will change when uploaded to wheelchair
-	LED_port = '/dev/ttyACM0'
+	#LED_port = '/dev/ttyACM0'
+	LED_port = 'COM8'
 	#define the baud rate
 	baud_rate = 115200
 	#define the number of ultrasonics
@@ -144,7 +145,7 @@ def main(args):
 		#catch KeyboardInterrupt exception when node is killed, print "Shutting down!" to console
 		except KeyboardInterrupt:
 
-			print "Shutting down!"
+			print("Shutting down!")
 
 #do everything in main
 if __name__ == '__main__':
